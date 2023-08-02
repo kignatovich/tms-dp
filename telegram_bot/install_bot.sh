@@ -1,11 +1,11 @@
 #!/bin/bash
-TRF = terraform_1.4.6_linux_amd64.zip
-apt update 
+TRF=terraform_1.4.6_linux_amd64.zip
+apt update
 apt upgrade -y
-apt instll unzip
+apt install unzip
 wget https://hashicorp-releases.yandexcloud.net/terraform/1.4.6/$TRF
 unzip $TRF -d ./
-mv ~/Downloads/terraform /usr/local/bin/
+mv ./terraform /usr/local/bin/
 pip3 install python-telegram-bot
 mkdir -p /opt/infra
 cp ./telegram_bot/tgbot.py /opt/infra

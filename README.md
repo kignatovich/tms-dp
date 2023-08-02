@@ -7,8 +7,11 @@
 curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
 ```
 Подробнее.
+
 https://cloud.yandex.ru/docs/cli/operations/install-cli
+
 Настройка аутентификации
+
 https://cloud.yandex.ru/docs/cli/operations/authentication/user
 
 После выполнения авторизации, можно выполнить команду(команда выводит список публичных образов, можно любую другую):

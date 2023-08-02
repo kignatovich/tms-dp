@@ -7,7 +7,7 @@ wget https://hashicorp-releases.yandexcloud.net/terraform/1.4.6/$TRF
 unzip $TRF -d ./
 mv ./terraform /usr/local/bin/
 pip3 install python-telegram-bot
-mkdir -p /opt/infra
+mkdir -p /opt/infra/sonarqube
 cp ./telegram_bot/tgbot.py /opt/infra/
 cp ./telegram_bot/tgbp.service /etc/systemd/system/
 cp ./infra/sonarqube/docker-compose.yml /opt/infra/

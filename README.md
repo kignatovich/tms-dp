@@ -18,7 +18,7 @@ yc compute image list --folder-id standard-images
 
 Для установки telegram бота, нужно сделать следующие команды:
 ```shell
-git clone
+git clone git@github.com:kignatovich/tms-dp.git
 chmode +x ./telegram_bot/instll_bot.sh
 ./telegram_bot/install_bot.sh
 ```

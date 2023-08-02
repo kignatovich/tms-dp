@@ -8,8 +8,9 @@ unzip $TRF -d ./
 mv ./terraform /usr/local/bin/
 pip3 install python-telegram-bot
 mkdir -p /opt/infra
-cp ./telegram_bot/tgbot.py /opt/infra
+cp ./telegram_bot/tgbot.py /opt/infra/
 cp ./telegram_bot/tgbp.service /etc/systemd/system/
+cp ./infra/sonarqube/docker-compose.yml /opt/infra/
 sudo systemctl daemon-reload
 sudo systemctl enable tgbp.service
 sudo systemctl start tgbp.service

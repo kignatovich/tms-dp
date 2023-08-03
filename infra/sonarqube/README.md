@@ -133,3 +133,6 @@ Run the code scanner by passing your login token.
 ```shell
 $ sonar-scanner -D sonar.login=<YourLoginToken>
 ```
+```shell
+sonar-scanner -D sonar.login=$(cat /home/ubuntu/token)
+```

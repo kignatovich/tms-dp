@@ -22,3 +22,10 @@ git clone git@github.com:kignatovich/tms-dp.git
 chmode +x ./telegram_bot/instll_bot.sh
 ./telegram_bot/install_bot.sh
 ```
+## Установка terraform
+```shell
+wget https://hashicorp-releases.yandexcloud.net/terraform/1.4.6/terraform_1.4.6_linux_amd64.zip
+unzip terraform_1.4.6_linux_amd64.zip
+mv terraform /usr/local/bin/
+```
+ 

@@ -3,8 +3,9 @@
 Download the scanner.
 ```shell
 $ wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.0.2747-linux.zip
-Extract the archive.
 ```
+Extract the archive.
+
 ```shell
 $ sudo unzip sonar-scanner-cli-4.7.0.2747-linux.zip
 ```

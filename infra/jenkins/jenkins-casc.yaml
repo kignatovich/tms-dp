@@ -1,0 +1,60 @@
+# jenkins-casc.yaml
+
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - basicSSHUserPrivateKey:
+          scope: GLOBAL
+          id: git_to_jenkins
+          username: ssh_root
+          description: "SSH passphrase with private key file. Private key provided"
+          privateKeySource:
+            directEntry:
+              privateKey: "${readFile:/var/jenkins_home/.ssh/id.rsa}"
+
+jenkins:
+  systemMessage: "Пример использования Jenkins As Code"
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: "admin"
+          password: "admin"
+        - id: "dev"
+          password: "dev"
+  # authorizationStrategy: loggedInUsersCanDoAnything
+  authorizationStrategy:
+    globalMatrix:
+      permissions:
+        - "Job/Build:dev"
+        - "Job/Cancel:dev"
+        - "Job/Read:dev"
+        - "Job/Workspace:dev"
+        - "Overall/Administer:admin"
+        - "Overall/Read:authenticated"
+        - "Run/Replay:dev"
+        - "Run/Update:dev"
+
+  # make sure our jenkins master has 1 executor so that we can run our pipelines
+  numExecutors: 1
+
+
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  gitHooks:
+    allowedOnAgents: false
+    allowedOnController: false
+  gitHostKeyVerificationConfiguration:
+    sshHostKeyVerificationStrategy: "noHostKeyVerificationStrategy"
+  globalJobDslSecurityConfiguration:
+    useScriptSecurity: true
+  sSHD:
+    port: -1
+
+# specify the seedjob groovy script that will create the  pipelines for us
+jobs:
+  - file: /usr/local/seedjob.groovy

@@ -17,6 +17,7 @@ COPY id_rsa /var/jenkins_home/.ssh/id.rsa
 COPY id_rsa.pub /var/jenkins_home/.ssh/id.rsa.pub
 COPY sonar-scanner.properties /opt/sonarscanner/conf/
 COPY plugins.txt /usr/share/jenkins/plugins.txt
+COPY token /opt/sonarscanner/
 RUN jenkins-plugin-cli --plugin-file /usr/share/jenkins/plugins.txt
 ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
 COPY seedjob.groovy /usr/local/seedjob.groovy

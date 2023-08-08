@@ -4,7 +4,7 @@ RUN apt update && \
     apt install -y --no-install-recommends gnupg curl ca-certificates apt-transport-https && \
     curl -sSfL https://apt.octopus.com/public.key | apt-key add - && \
     sh -c "echo deb https://apt.octopus.com/ stable main > /etc/apt/sources.list.d/octopus.com.list" && \
-    apt update && apt install -y wget unzip git
+    apt update && apt install -y wget unzip git pylint
 RUN wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.0.2747-linux.zip
 RUN unzip sonar-scanner-cli-4.7.0.2747-linux.zip
 RUN mkdir /opt/sonarscanner

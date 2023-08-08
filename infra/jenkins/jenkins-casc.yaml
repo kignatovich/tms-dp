@@ -102,7 +102,7 @@ unclassified:
     apiRateLimitChecker: ThrottleForNormalize
   gitHubPluginConfig:
     configs:
-    - credentialsId: "api_atht"
+    - credentialsId: "api_ath"
       name: "github"
     hookSecretConfigs:
     - credentialsId: "api_ath"

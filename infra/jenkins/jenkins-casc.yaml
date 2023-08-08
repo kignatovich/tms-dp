@@ -14,7 +14,7 @@ credentials:
               privateKey: "${readFile:/var/jenkins_home/.ssh/id.rsa}"
       - string:
           description: "api_git"
-          id: "api_file_test"
+          id: "api_ath"
           scope: GLOBAL
           secret: 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
 
@@ -102,10 +102,10 @@ unclassified:
     apiRateLimitChecker: ThrottleForNormalize
   gitHubPluginConfig:
     configs:
-    - credentialsId: "api_file_test"
+    - credentialsId: "api_atht"
       name: "github"
     hookSecretConfigs:
-    - credentialsId: "api_file_test"
+    - credentialsId: "api_ath"
     hookUrl: "http://0.0.0.0:8080/github-webhook/"
     
 # specify the seedjob groovy script that will create the  pipelines for us

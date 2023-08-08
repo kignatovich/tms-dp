@@ -19,7 +19,7 @@ credentials:
           secret: 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
 
 jenkins:
-  systemMessage: "Пример использования Jenkins As Code"
+  systemMessage: "Дженкинс развернут в для дипломного проекта в yandex cloud"
   securityRealm:
     local:
       allowsSignup: false

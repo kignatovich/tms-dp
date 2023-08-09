@@ -19,8 +19,8 @@ services:
       - postgresql
     environment:
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
-      - SONARQUBE_USERNAME: admin
-      - SONARQUBE_PASSWORD: bitnami
+      - SONARQUBE_USERNAME=admin
+      - SONARQUBE_PASSWORD=bitnami
       - ALLOW_EMPTY_PASSWORD=yes
       - SONARQUBE_DATABASE_HOST=postgresql
       - SONARQUBE_DATABASE_PORT_NUMBER=5432

@@ -18,7 +18,7 @@ pipeline {
     stage('Clone repository') {
       steps {
           echo "Clone repository"
-          checkout scmGit(branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[credentialsId: 'git_to_jenkins', url: 'git@github.com:kignatovich/Warhammer40k.git']])
+          checkout scmGit(branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[credentialsId: 'git_to_jenkins', url: 'git@github.com:kignatovich/myproject-dp.git']])
       }
     }
   

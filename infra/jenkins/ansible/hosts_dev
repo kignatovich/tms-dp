@@ -1,5 +1,5 @@
 all:
-    hosts: ubuntu@51.250.77.217
+    hosts: ubuntu@X.X.X.X
     vars:
         repo_url: git@github.com:kignatovich
         repo: myproject-dp

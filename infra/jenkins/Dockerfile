@@ -15,6 +15,7 @@ RUN chmod +x /opt/sonarscanner/bin/sonar-scanner
 RUN ln -s /opt/sonarscanner/bin/sonar-scanner /usr/local/bin/sonar-scanner
 RUN mkdir -p /var/jenkins_home/.ssh/
 COPY ansible/ /opt/ansible/
+RUN  chmod 600 /opt/ansible/id_rsa
 COPY id_rsa /var/jenkins_home/.ssh/id.rsa
 COPY id_rsa.pub /var/jenkins_home/.ssh/id.rsa.pub
 COPY authorized_keys /var/jenkins_home/authorized_keys

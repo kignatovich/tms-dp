@@ -1,0 +1,14 @@
+all:
+    hosts: ubuntu@51.250.77.217
+    vars:
+        repo_url: git@github.com:kignatovich
+        repo: myproject-dp
+        home_dir: /home/ubuntu
+        repo_dir: "{{ home_dir }}/{{ repo }}"
+        build_name: myapp-main
+        ext_port: 8000
+        int_port: 8000
+        repo_branch: main
+        container_name: my-app-main        
+        sname_ghcr: kignatovich
+        full_name: "ghcr.io/{{ sname_ghcr }}/{{ build_name }}"

@@ -30,3 +30,5 @@ sudo certbot --nginx -d $jenkins_url -d www.$jenkins_url --non-interactive --agr
 sudo certbot --nginx -d $sonarqube_url -d www.$sonarqube_url --non-interactive --agree-tos -m $MAIL
 sudo certbot --nginx -d $dev_url -d www.$dev_url --non-interactive --agree-tos -m $MAIL
 sudo certbot --nginx -d $prod_url -d www.$prod_url --non-interactive --agree-tos -m $MAIL
+
+sed -i -e "s/0.0.0.0/$jenkins_url/g" ./tms-dp/infra/jenkins/jenkins-casc.yaml

@@ -106,7 +106,7 @@ unclassified:
       name: "github"
     hookSecretConfigs:
     - credentialsId: "api_ath"
-    hookUrl: "http://0.0.0.0:8080/github-webhook/"
+    hookUrl: "https://0.0.0.0/github-webhook/"
     
 # specify the seedjob groovy script that will create the  pipelines for us
 jobs:

@@ -94,3 +94,61 @@ groups:
     annotations:
       summary: "Sonarqube high memory usage"
       description: "Sonarqube memory consumption is at {{ humanize $value}}."
+
+- alert: my-app-dev_down
+    expr: absent(container_memory_usage_bytes{name="my-app-dev"})
+    for: 30s
+    labels:
+      severity: critical
+    annotations:
+      summary: "My-app-dev down"
+      description: "My-app-dev container is down for more than 30 seconds."
+
+  - alert: my-app-dev_high_cpu
+    expr: sum(rate(container_cpu_usage_seconds_total{name="my-app-dev"}[1m])) / count(node_cpu_seconds_total{mode="system"}) * 100 > 10
+    for: 30s
+    labels:
+      severity: warning
+    annotations:
+      summary: "My-app-dev high CPU usage"
+      description: "My-app-dev CPU usage is {{ humanize $value}}%."
+
+  - alert: my-app-dev_high_memory
+    expr: sum(container_memory_usage_bytes{name="my-app-dev"}) > 1200000000
+    for: 30s
+    labels:
+      severity: warning
+    annotations:
+      summary: "My-app-dev high memory usage"
+      description: "My-app-dev memory consumption is at {{ humanize $value}}."
+
+- alert: my-app-main_down
+    expr: absent(container_memory_usage_bytes{name="my-app-main"})
+    for: 30s
+    labels:
+      severity: critical
+    annotations:
+      summary: "My-app-main down"
+      description: "My-app-main container is down for more than 30 seconds."
+
+  - alert: my-app-main_high_cpu
+    expr: sum(rate(container_cpu_usage_seconds_total{name="my-app-main"}[1m])) / count(node_cpu_seconds_total{mode="system"}) * 100 > 10
+    for: 30s
+    labels:
+      severity: warning
+    annotations:
+      summary: "My-app-main high CPU usage"
+      description: "My-app-main CPU usage is {{ humanize $value}}%."
+
+  - alert: my-app-main_high_memory
+    expr: sum(container_memory_usage_bytes{name="my-app-main"}) > 1200000000
+    for: 30s
+    labels:
+      severity: warning
+    annotations:
+      summary: "My-app-main high memory usage"
+      description: "My-app-main memory consumption is at {{ humanize $value}}."
+
+
+
+

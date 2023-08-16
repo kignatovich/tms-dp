@@ -1,11 +1,13 @@
 route:
-    receiver: 'slack'
+  - match:
+      severity: send-telegram
+    receiver: stardata-telegram
 
 receivers:
-    - name: 'slack'
-      slack_configs:
-          - send_resolved: true
-            text: "{{ .CommonAnnotations.description }}"
-            username: 'Prometheus'
-            channel: '#<channel-name>'
-            api_url: 'https://hooks.slack.com/services/<webhook-id>'
+ 
+- name: 'stardata-telegram'
+  telegram_configs:
+  - bot_token: 6612780049:AAFN1EPIxZJYZwURiMC3Cx1XYEFlDeeNdOs
+    api_url: https://api.telegram.org
+    chat_id: -1001859723546
+    parse_mode: 

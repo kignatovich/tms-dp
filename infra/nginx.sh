@@ -30,9 +30,9 @@ sed -i "s/SQ_EXAMPLE/https:\/\/$sonarqube_url/g" $home_page/index.html
 sed -i "s/JN_EXAMPLE/https:\/\/$jenkins_url/g" $home_page/index.html
 sed -i "s/PROD_EXAMPLE/https:\/\/$prod_url/g" $home_page/index.html
 sed -i "s/DEV_EXAMPLE/https:\/\/$dev_url/g" $home_page/index.html
-sed -i "s/PROM_EXAMPLE/https:\/\/$dev_url/g" $home_page/index.html
-sed -i "s/GRAF_EXAMPLE/https:\/\/$dev_url/g" $home_page/index.html
-sed -i "s/CAD_EXAMPLE/https:\/\/$dev_url/g" $home_page/index.html
+sed -i "s/PROM_EXAMPLE/https:\/\/$pom_url/g" $home_page/index.html
+sed -i "s/GRAF_EXAMPLE/https:\/\/$graf_url/g" $home_page/index.html
+sed -i "s/CAD_EXAMPLE/https:\/\/$cad_url/g" $home_page/index.html
 
 
 systemctl reload nginx

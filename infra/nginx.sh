@@ -46,3 +46,6 @@ sudo certbot --nginx -d $graf_url -d www.$graf_url --non-interactive --agree-tos
 sudo certbot --nginx -d $cad_url -d www.$cad_url --non-interactive --agree-tos -m $MAIL
 
 sed -i -e "s/0.0.0.0/$jenkins_url/g" ./tms-dp/infra/jenkins/jenkins-casc.yaml
+sudo sed -i -e "s/#_#//g" $ND/conf.d/$pom_url.conf
+sudo sed -i -e "s/#_#//g" $ND/conf.d/$cad_url.conf
+systemctl reload nginx

@@ -1,8 +1,9 @@
   # Terraform
   - create_bucket - праметры для s3 бакета, в которм будет храниться terraform.tfstate от create_infra  (все переменые задаются в файле terraform.tfvars)
   - create_dns - создание зоны DNS для нашего проекта (все переменые задаются в файле terraform.tfvars)
-  - create_infra - создание ВМ для разворачивания проекта и выполнение в ней команд по разворачиванию системы CD\CD(зависит от create_bucket и create_dns).
-
+  - create_infra - создание ВМ для разворачивания проекта и выполнение в ней команд по разворачиванию системы CD\CD(все переменые задаются в файле terraform.tfvars, зависит от create_bucket и create_dns)
+  - 
+Для удобства файл terraform.tfvars один для create_bucket, create_dns и create_infra. В рельном использовании этого быть не должно, файлы должны быть очищены от лишних переменных. Так же стоит отметить, что для create_bucket и create_dns не используется хранение terraform.tfstate в s3 облаке, в реальном использовании, это должно быть реализовано. 
 
 
 Описание terraform.tfvars
@@ -33,4 +34,13 @@ grafana_dns_a_name = "grafana1.devsecops.by." #страница grafana прое
 prometheus_dns_a_name = "prom1.devsecops.by." #страница prometheus проекта (обязательно с точкой в конце)
 cadvisor_dns_a_name = "cad1.devsecops.by."   #страница cadvisor проекта (обязательно с точкой в конце)
 static_ip = "51.250.14.123"  #статический адрес проекта
+```
+
+Запуск. Переходим в нужную директори. выполняем:
+```shell
+terraform plan
+```
+
+```shell
+terraform apply
 ```

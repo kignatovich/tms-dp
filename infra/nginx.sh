@@ -21,7 +21,7 @@ cp ./tms-dp/infra/nginx/jenkins_example.conf $ND/conf.d/$jenkins_url.conf && sed
 cp ./tms-dp/infra/nginx/sonaraube_example.conf $ND/conf.d/$sonarqube_url.conf && sed -i "s/EXAMPLE/$sonarqube_url/g" $ND/conf.d/$sonarqube_url.conf
 cp ./tms-dp/infra/nginx/prod_example.conf $ND/conf.d/$prod_url.conf && sed -i "s/EXAMPLE/$prod_url/g" $ND/conf.d/$prod_url.conf
 cp ./tms-dp/infra/nginx/dev_example.conf $ND/conf.d/$dev_url.conf && sed -i "s/EXAMPLE/$dev_url/g" $ND/conf.d/$dev_url.conf
-cp ./tms-dp/infra/nginx/prometheus_example.conf $ND/conf.d/$pom_url.conf && sed -i "s/EXAMPLE/$pom_url/g" $ND/conf.d/$pom_url.conf
+cp ./tms-dp/infra/nginx/prometheus_examlpe.conf $ND/conf.d/$pom_url.conf && sed -i "s/EXAMPLE/$pom_url/g" $ND/conf.d/$pom_url.conf
 cp ./tms-dp/infra/nginx/grafana_example.conf $ND/conf.d/$graf_url.conf && sed -i "s/EXAMPLE/$graf_url/g" $ND/conf.d/$graf_url.conf
 cp ./tms-dp/infra/nginx/cadvisor_example.conf $ND/conf.d/$cad_url.conf && sed -i "s/EXAMPLE/$cad_url/g" $ND/conf.d/$cad_url.conf
 

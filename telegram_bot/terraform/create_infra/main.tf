@@ -146,9 +146,9 @@ resource "yandex_compute_instance" "vm-1" {
       # запускаем контейнер с дженкинсом
       "sudo docker run -d --restart always --name jenkins -p 8080:8080 ghcr.io/${var.sname_ghcr}/${var.jenkins_im_ghcr}",
       # отправляем его(артефакт) в хранилище github 
-      
+      "./tms-dp/infra/jenkins/telegram.sh 'Ресурс достпен по адресу - https:\\${var.dns_a_name}\nВнешний IP адрес - ${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address}'"
 
-      #"echo '<html><body><h1>Welcome to ${var.SQPNAME} Infrastructure</h1><ul><li><a href=\"http://${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address}:9000\">SonarQube</a></li><li><a href=\"http://${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address}:8080\">Jenkins</a></li><li><a href=\"http://${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address}:8000\">${var.SQPNAME} - Prod</a></li><li><a href=\"http://${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address}:8050\">${var.SQPNAME} - Dev</a></li></ul></body></html>' | sudo tee /var/www/html/index.html",
+      
     ]
   }
 

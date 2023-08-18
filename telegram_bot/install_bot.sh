@@ -7,10 +7,8 @@ wget https://hashicorp-releases.yandexcloud.net/terraform/1.4.6/$TRF
 unzip $TRF -d ./
 mv ./terraform /usr/local/bin/
 pip3 install python-telegram-bot
-mkdir -p /opt/infra/sonarqube
-cp ./telegram_bot/tgbot.py /opt/infra/
+sed -i "s/PATH_TO_FILE/$PWD/tms-dp/telegram_bot/tgbot.py/g" /$PWD/tms-dp/telegram_bot/tgbp.service
 cp ./telegram_bot/tgbp.service /etc/systemd/system/
-cp ./infra/sonarqube/docker-compose.yml /opt/infra/sonarqube
 sudo systemctl daemon-reload
 sudo systemctl enable tgbp.service
 sudo systemctl start tgbp.service

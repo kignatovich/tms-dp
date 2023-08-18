@@ -104,6 +104,7 @@ resource "yandex_compute_instance" "vm-1" {
       "sudo rm ./${var.prpass_zip} ./${var.prpass_file}",
       # клонируем проект с нашей инфраструктурой
       "echo yes | git clone ${var.GITPROJECT}",
+      "sudo chmod +x ./tms-dp/infra/jenkins/telegram.sh",
       
       #установка мониторинга
 
@@ -131,9 +132,6 @@ resource "yandex_compute_instance" "vm-1" {
       
       # заменяем пароль администратора 1234 на пароль на наш и файла с переменными, заменяем IP адрес для вэбхуков на наш внешний адрес
       "sed -i -e \"s/1234/${var.SQPWD}/g\" ./tms-dp/infra/jenkins/jenkins-casc.yaml",
-      #"sed -i \"s/0\\.0\\.0\\.0/https:\\/\\/$nginx_jenkins_url/g\" ./tms-dp/infra/jenkins/jenkins-casc.yaml",
-      #"sed -i -e \"s/0.0.0.0/https:${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address}/g\" ./tms-dp/infra/jenkins/jenkins-casc.yaml",
-      #"sed -i -e \"s/0.0.0.0/${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address}/g\" ./tms-dp/infra/jenkins/jenkins-casc.yaml",
       "sed -i -e \"s/X.X.X.X/${yandex_compute_instance.vm-1.network_interface.0.ip_address}/g\" ./tms-dp/infra/jenkins/ansible/hosts_dev",
       "sed -i -e \"s/X.X.X.X/${yandex_compute_instance.vm-1.network_interface.0.ip_address}/g\" ./tms-dp/infra/jenkins/ansible/hosts_main",
       "sudo chmod +x ./tms-dp/infra/nginx.sh",

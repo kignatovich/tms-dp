@@ -53,6 +53,7 @@ resource "yandex_compute_instance" "vm-1" {
       size = 15
       image_id = "fd8bkgba66kkf9eenpkb"
       #fd8n6sult0bipcm75u12
+      type     = "network-ssd"
     }
   }
 

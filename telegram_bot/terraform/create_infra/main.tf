@@ -130,6 +130,7 @@ resource "yandex_compute_instance" "vm-1" {
       "curl -X POST -u admin:${var.SQPWD} \"http://localhost:9000/api/user_tokens/generate\" -d \"name=${var.SQPNAME}&login=admin&projectKey=${var.SQPKEY}\" | grep -o '\"token\":\"[^\"]*' | cut -d'\"' -f4 > ./tms-dp/infra/jenkins/token",
       "sudo echo sonar.host.url=http://${yandex_compute_instance.vm-1.network_interface.0.ip_address}:9000 >> ./tms-dp/infra/jenkins/sonar-scanner.properties",
       
+      
       # заменяем пароль администратора 1234 на пароль на наш и файла с переменными, заменяем IP адрес для вэбхуков на наш внешний адрес
       "sed -i -e \"s/1234/${var.SQPWD}/g\" ./tms-dp/infra/jenkins/jenkins-casc.yaml",
       "sed -i -e \"s/X.X.X.X/${yandex_compute_instance.vm-1.network_interface.0.ip_address}/g\" ./tms-dp/infra/jenkins/ansible/hosts_dev",

@@ -7,7 +7,8 @@ wget https://hashicorp-releases.yandexcloud.net/terraform/1.4.6/$TRF
 unzip $TRF -d ./
 mv ./terraform /usr/local/bin/
 pip3 install python-telegram-bot
-sed -i "s/PATH_TO_FILE/$PWD/tms-dp/telegram_bot/tgbot.py/g" /$PWD/tms-dp/telegram_bot/tgbp.service
+PATH1=$(readlink -f tgbot.py)
+sed -i "s|PATH_TO_FILE|$PATH1|g" tgbp.service
 cp ./telegram_bot/tgbp.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable tgbp.service

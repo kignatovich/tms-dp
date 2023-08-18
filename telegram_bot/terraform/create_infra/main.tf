@@ -146,7 +146,7 @@ resource "yandex_compute_instance" "vm-1" {
       # запускаем контейнер с дженкинсом
       "sudo docker run -d --restart always --name jenkins -p 8080:8080 ghcr.io/${var.sname_ghcr}/${var.jenkins_im_ghcr}",
       # отправляем его(артефакт) в хранилище github 
-      "./tms-dp/infra/jenkins/telegram.sh 'Ресурс достпен по адресу - https:\\${var.dns_a_name}'",
+      "./tms-dp/infra/jenkins/telegram.sh 'Ресурс достпен по адресу - https://${var.dns_a_name}'",
       "./tms-dp/infra/jenkins/telegram.sh 'Внешний IP адрес - ${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address}'",
 
       

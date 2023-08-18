@@ -85,8 +85,8 @@ resource "yandex_compute_instance" "vm-1" {
       "sudo snap install --classic certbot",
       "sudo ln -s /snap/bin/certbot /usr/bin/certbot",
       "sudo systemctl enable docker",
-      "wget https://github.com/aquasecurity/trivy/releases/download/v0.18.3/trivy_0.18.3_Linux-64bit.deb",
-      "sudo dpkg -i trivy_0.18.3_Linux-64bit.deb",
+      "wget https://github.com/aquasecurity/trivy/releases/download/v0.44.1/trivy_0.44.1_Linux-64bit.deb",
+      "sudo dpkg -i trivy_0.44.1_Linux-64bit.deb",
       
       "echo ${var.dns_a_name} > nginx_projeckt_url",
       "echo ${var.jenkins_dns_a_name} > nginx_jenkins_url",

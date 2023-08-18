@@ -121,7 +121,7 @@ resource "yandex_compute_instance" "vm-1" {
       # усатнвока sonar qube
       "sudo docker run -d --restart always --name sonarqube -p 9000:9000 -p 9092:9092 -v sonarqube-conf:/opt/sonarqube/conf -v sonarqube-data:/opt/sonarqube/data -v sonarqube-logs:/opt/sonarqube/logs -v sonarqube-extensions:/opt/sonarqube/extensions sonarqube",
       # ждем 200 сек когда он запустится, у меня он не очень быстро стартует, поэтому нужно немного подождать
-      "sleep 160",
+      "sleep 300",
       # меняем стандартный пароль сонара на наш и файла с переменными
       "curl -u admin:admin -X POST \"http://localhost:9000/api/users/change_password?login=admin&previousPassword=admin&password=${var.SQPWD}\"",
       # создаем проект кей и дефолтный проект

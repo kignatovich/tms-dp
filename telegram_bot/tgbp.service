@@ -7,7 +7,7 @@ User=root
 Group=root
 Type=simple
 Restart=always
-ExecStart=/usr/bin/python3 /opt/infra/tgbot.py
+ExecStart=/usr/bin/python3 PATH_TO_FILE
 
 [Install]
 WantedBy=multi-user.target

@@ -1,7 +1,6 @@
 import subprocess
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
-#import time
 import os
 from functools import wraps
 
@@ -88,8 +87,6 @@ async def task(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         
         if value2 == "main":
             #запуск проекта в прод окружении
-            #completed_process = subprocess.run(["mkdir", value1], cwd=PROJECT_DIR, capture_output=True, text=True)
-            #completed_process = subprocess.run(["mkdir", value2], cwd=PROJECT_DIR, capture_output=True, text=True)
             completed_process = subprocess.run(["bash", "task.sh", value1, value2], cwd=PROJECT_DIR, capture_output=True, text=True)
             output_main = completed_process.stdout.strip()
             await update.message.reply_text(f"Разворачивание выполненео успешно.\nИнформация: {output_main}")
@@ -98,8 +95,6 @@ async def task(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         
         elif value2 == "dev":
             #запуск проекта в дев окружении
-            #completed_process = subprocess.run(["mkdir", value1], cwd=PROJECT_DIR, capture_output=True, text=True)
-            #completed_process = subprocess.run(["mkdir", value2], cwd=PROJECT_DIR, capture_output=True, text=True)
             completed_process = subprocess.run(["bash", "task.sh", value1, value2], cwd=PROJECT_DIR, capture_output=True, text=True)
             output_dev = completed_process.stdout.strip()
             await update.message.reply_text(f"Разворачивание выполненео успешно.\nИнформация: {output_dev}")

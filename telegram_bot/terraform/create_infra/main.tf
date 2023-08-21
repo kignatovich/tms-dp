@@ -78,15 +78,16 @@ resource "yandex_compute_instance" "vm-1" {
       "echo \"\\$nrconf{kernelhints} = 0\" | sudo tee -a /etc/needrestart/conf.d/silence_kernel.conf",
       # обновляем и устанавливаем нужные программы
       "sudo apt update",
-      "sleep 30",
+      "sleep 90", #таймеры нужны для корректного завершения установок
       "sudo apt install -y docker.io nginx unzip git docker-compose",
-      "sleep 30",
+      "sleep 40", #таймеры нужны для корректного завершения установок
       "sudo snap install core",
       "sudo snap refresh core",
       "sudo snap install --classic certbot",
       "sudo ln -s /snap/bin/certbot /usr/bin/certbot",
       "sudo systemctl enable docker",
       "wget https://github.com/aquasecurity/trivy/releases/download/v0.44.1/trivy_0.44.1_Linux-64bit.deb",
+      "sleep 30", #таймеры нужны для корректного завершения установок
       "sudo dpkg -i trivy_0.44.1_Linux-64bit.deb",
       
       "echo ${var.dns_a_name} > nginx_projeckt_url",

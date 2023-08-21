@@ -50,7 +50,7 @@ resource "yandex_compute_instance" "vm-1" {
  
   boot_disk {
     initialize_params {
-      size = 15
+      size = 550
       image_id = "fd8bkgba66kkf9eenpkb"
       #fd8n6sult0bipcm75u12
       type     = "network-ssd"

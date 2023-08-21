@@ -47,7 +47,7 @@ async def deploy(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         if not os.path.exists(deploy_script_path):
             await update.message.reply_text("main.tf отсутсвует.")
             return
-        completed_process = subprocess.run(["bash", "terraform apply", "apply"], cwd=PROJECT_DIR, capture_output=True, text=True)
+        completed_process = subprocess.run(["bash", "terraform apply", "apply", "-auto-approve"], cwd=PROJECT_DIR, capture_output=True, text=True)
         output_deploy = completed_process.stdout.strip()
         
         await update.message.reply_text(f"Деплой выполнен.\nИнформация: {output_deploy}")

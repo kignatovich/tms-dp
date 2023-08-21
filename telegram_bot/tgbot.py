@@ -4,9 +4,8 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 import os
 from functools import wraps
 
-#PROJECT_DIR = os.getcwd()
-#PROJECT_DIR = "/home/dp/dp_project/infra/"
-PROJECT_DIR = "/Users/kiryl/Documents/dp-tms/telegram_bot/"
+PROJECT_DIR = os.getcwd()
+
 
 
 def restricted(func):
@@ -55,8 +54,6 @@ async def deploy(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     except Exception as e:
         await update.message.reply_text(f"Во время выполнения операции запуска возникла ошибка: {str(e)}")
         await update.message.reply_text(f"Во время выполнения операции деплоя возникла ошибка: {output_deploy}")
-
-
 
 
 app = ApplicationBuilder().token("5889569320:AAGDeEAGOCLy2xvYko-cIZ-oT0EmOtTnTJY").build()

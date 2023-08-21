@@ -113,7 +113,6 @@ resource "yandex_compute_instance" "vm-1" {
       "sudo cp ./tms-dp/infra/daemon.json /etc/docker/",
       "sudo systemctl restart docker",
 
-
       "sudo chmod +x ./tms-dp/infra/loki.sh",
       "sudo ./tms-dp/infra/loki.sh",
       "sed -i -e \"s/0.0.0.0/${yandex_compute_instance.vm-1.network_interface.0.ip_address}/g\" ./tms-dp/infra/monitoring/grafana/provisioning/datasources/datasource.yml",

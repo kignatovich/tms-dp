@@ -4,7 +4,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 import os
 from functools import wraps
 
-PROJECT_DIR = os.getcwd()
+PROJECT_DIR = "PRPATH"
 
 
 
@@ -42,7 +42,7 @@ async def deploy(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     # Check if the command has the required argument (the repository name)
     try:
         script_directory = os.path.dirname(os.path.abspath(__file__))
-        working_directory = os.path.join(script_directory, PROJECT_DIR, "terraform", "create_infra")
+        working_directory = os.path.join(PROJECT_DIR, "terraform", "create_infra")
         required_files = ["providers.tf", "terraform.tfvars", "variables.tf", "main.tf"]
         missing_files = [file for file in required_files if not os.path.exists(os.path.join(working_directory, file))]
         

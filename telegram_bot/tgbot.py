@@ -42,7 +42,7 @@ async def deploy(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     # Check if the command has the required argument (the repository name)
     try:
         script_directory = os.path.dirname(os.path.abspath(__file__))
-        working_directory = os.path.join(script_directory, PROJECT_DIR)
+        working_directory = os.path.join(script_directory, PROJECT_DIR, "terraform", "create_infra")
         deploy_script_path = os.path.join(working_directory, "main.tf")
         if not os.path.exists(deploy_script_path):
             await update.message.reply_text("main.tf отсутсвует.")

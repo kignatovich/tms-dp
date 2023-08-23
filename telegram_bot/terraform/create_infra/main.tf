@@ -76,6 +76,7 @@ resource "yandex_compute_instance" "vm-1" {
       # отключение сообщений ubuntu о том что нужно перезапустить службы после установки какого то либо пакета и сообщенеи что есть новая версия ядра
       "echo \"\\$nrconf{restart} = 'a'\" | sudo tee -a /etc/needrestart/needrestart.conf",
       "echo \"\\$nrconf{kernelhints} = 0\" | sudo tee -a /etc/needrestart/conf.d/silence_kernel.conf",
+      "sudo timedatectl set-timezone Europe/Minsk",
       # обновляем и устанавливаем нужные программы
       "sudo apt update",
       "sleep 90", #таймеры нужны для корректного завершения установок

@@ -26,7 +26,7 @@ sudo ./telegram_bot/install_bot.sh
 ```
 
 В боте реализовна проерка на наличие файлов для запуска деплоя.
-Файлы которые проверяются providers.tf, terraform.tfvars, variables.tf, "main.tf.
+Файлы наличие которых проверяются: providers.tf, terraform.tfvars, variables.tf, "main.tf.
 
 
 <img width="615" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/905ee2cf-06ff-4f5e-b489-e969b2e66391">

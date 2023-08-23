@@ -43,10 +43,14 @@ async def deploy(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     try:
         script_directory = os.path.dirname(os.path.abspath(__file__))
         working_directory = os.path.join(script_directory, PROJECT_DIR, "terraform", "create_infra")
-        deploy_script_path = os.path.join(working_directory, "main.tf")
-        if not os.path.exists(deploy_script_path):
-            await update.message.reply_text("main.tf отсутсвует.")
+        required_files = ["providers.tf", "terraform.tfvars", "variables.tf", "main.tf"]
+        missing_files = [file for file in required_files if not os.path.exists(os.path.join(working_directory, file))]
+        
+        if missing_files:
+            missing_files_str = ", ".join(missing_files)
+            await update.message.reply_text(f"Отсутствует файл: {missing_files_str}")
             return
+        
         completed_process = subprocess.run(["bash", "terraform apply", "apply", "-auto-approve"], cwd=PROJECT_DIR, capture_output=True, text=True)
         output_deploy = completed_process.stdout.strip()
         

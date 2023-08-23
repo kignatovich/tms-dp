@@ -25,6 +25,11 @@ sudo ./telegram_bot/install_bot.sh
 /deploy
 ```
 
+У бота сделана авторизация по telegram_id, если вашего id нету в списке разрешенных, при запуске защищенной команды появится сообщение.
+
+<img width="626" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/c8f31e89-0866-4b84-a54a-3f14b71d0e59">
+
+
 В боте реализовна проерка на наличие файлов для запуска деплоя.
 Файлы наличие которых проверяются: providers.tf, terraform.tfvars, variables.tf, "main.tf.
 

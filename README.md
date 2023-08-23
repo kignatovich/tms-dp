@@ -16,11 +16,12 @@ mv terraform /usr/local/bin/
 git clone git@github.com:kignatovich/tms-dp.git
 git checkout terraform_bot_bran
 chmode +x ./telegram_bot/instll_bot.sh
-./telegram_bot/install_bot.sh
+sudo ./telegram_bot/install_bot.sh
 ```
+После запуска данной команды, скрипт установит службу бота и запустит ее. 
 
- После установки бота, нужно зайти в телеграмм и дать боту команду на установку инфраструктуры.
- ```bash
- /deploy
- ```
+После установки бота, нужно зайти в телеграмм и дать боту команду на установку инфраструктуры.
+```bash
+/deploy
+```
 

@@ -23,8 +23,8 @@ sudo ./telegram_bot/install_bot.sh
 Cледующим шагом нужно расшифровать секреты (любые файлы с расширением gpg).
 ```bash
 chmode +x ./telegram_bot/gpg_secret.sh
-./telegram_bot/gpg_secret.sh --dec --k private.key ./telegram_bot/terraform/create_infra/terraform.tfvars.gpg
-gpg: encrypted with 3072-bit RSA key, ID C525ADD1A4ADBE27, created 2023-08-24
+./telegram_bot/gpg_secret.sh --dec --k tms-dp-private.key ./telegram_bot/terraform/create_infra/terraform.tfvars.gpg
+gpg: encrypted with 3072-bit RSA key, ID 3BEFCA1C118FF8DA, created 2023-08-24
       "tms-dp <admin@devsecops.by>"
 Файл расшифрован.
 ```

@@ -14,6 +14,7 @@ mv terraform /usr/local/bin/
 ## Установка бота
 ```shell
 git clone git@github.com:kignatovich/tms-dp.git
+cd tms-dp/
 git checkout terraform_bot_bran
 chmode +x ./telegram_bot/instll_bot.sh
 sudo ./telegram_bot/install_bot.sh

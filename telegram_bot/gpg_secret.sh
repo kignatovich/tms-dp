@@ -30,7 +30,7 @@ elif [ "$1" == "--enc" ]; then
         echo "Файл зашифрован."
 
     else
-        echo "Использование: gpg_secret.sh --enc --k public.key /path/to/file"
+        echo "Использование: gpg_secret.sh --enc --k name_public.key /path/to/file"
     fi
 
 elif [ "$1" == "--dec" ]; then
@@ -43,14 +43,14 @@ elif [ "$1" == "--dec" ]; then
         echo "Файл расшифрован."
 
     else
-        echo "Использование: gpg_secret.sh --dec --k private.key /path/to/file"
+        echo "Использование: gpg_secret.sh --dec --k name_private.key /path/to/file"
     fi
 
 else
     echo "Использование: "
     echo "gpg_secret.sh --create"
-    echo "gpg_secret.sh --enc --k public.key /path/to/file"
-    echo "gpg_secret.sh --dec --k private.key /path/to/file"
+    echo "gpg_secret.sh --enc --k name_public.key /path/to/file"
+    echo "gpg_secret.sh --dec --k name_private.key /path/to/file"
     echo "gpg_secret.sh --export //И введите ID ключа"
     echo "gpg_secret.sh --import //И введите ID ключа"
 fi

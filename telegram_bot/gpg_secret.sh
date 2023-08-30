@@ -30,7 +30,7 @@ elif [ "$1" == "--enc" ]; then
         echo "Файл зашифрован."
 
     else
-        echo "Использование: script.sh --enc --k public.key /path/to/file"
+        echo "Использование: gpg_secret.sh --enc --k public.key /path/to/file"
     fi
 
 elif [ "$1" == "--dec" ]; then
@@ -43,7 +43,7 @@ elif [ "$1" == "--dec" ]; then
         echo "Файл расшифрован."
 
     else
-        echo "Использование: script.sh --dec --k private.key /path/to/file"
+        echo "Использование: gpg_secret.sh --dec --k private.key /path/to/file"
     fi
 
 else

@@ -90,7 +90,6 @@ resource "yandex_compute_instance" "vm-1" {
       "wget https://github.com/aquasecurity/trivy/releases/download/v0.44.1/trivy_0.44.1_Linux-64bit.deb",
       "sleep 30", #таймеры нужны для корректного завершения установок
       "sudo dpkg -i trivy_0.44.1_Linux-64bit.deb",
-      
       "echo ${var.dns_a_name} > nginx_projeckt_url",
       "echo ${var.jenkins_dns_a_name} > nginx_jenkins_url",
       "echo ${var.sonar_dns_a_name} > nginx_sonarqube_url",
@@ -107,6 +106,7 @@ resource "yandex_compute_instance" "vm-1" {
       # клонируем проект с нашей инфраструктурой
       "echo yes | git clone ${var.GITPROJECT}",
       "sudo chmod +x ./tms-dp/infra/jenkins/telegram.sh",
+      "sudo chmod +x ./tms-dp/infra/gpg_secret.sh",
       
       #установка мониторинга
 

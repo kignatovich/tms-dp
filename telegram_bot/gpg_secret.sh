@@ -48,9 +48,9 @@ elif [ "$1" == "--dec" ]; then
 
 else
     echo "Использование: "
-    echo "script.sh --create"
-    echo "script.sh --enc --k public.key /path/to/file"
-    echo "script.sh --dec --k private.key /path/to/file"
-    echo "script.sh --export //И введите ID ключа"
-    echo "script.sh --import //И введите ID ключа"
+    echo "gpg_secret.sh --create"
+    echo "gpg_secret.sh --enc --k public.key /path/to/file"
+    echo "gpg_secret.sh --dec --k private.key /path/to/file"
+    echo "gpg_secret.sh --export //И введите ID ключа"
+    echo "gpg_secret.sh --import //И введите ID ключа"
 fi

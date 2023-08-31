@@ -107,8 +107,8 @@ resource "yandex_compute_instance" "vm-1" {
       "echo yes | git clone ${var.GITPROJECT}",
       "sudo chmod +x ./tms-dp/infra/jenkins/telegram.sh",
       "sudo chmod +x ./tms-dp/infra/gpg_secret.sh",
-      "sudo chmod 644 ./tms-dp/mytest-private.key",
-      "sudo ./tms-dp/infra/gpg_secret.sh --rcs --k ./tms-dp/mytest-private.key ./tms-dp/",
+      "sudo chmod 644 ./tms-dp/tms-infra-private.key",
+      "sudo ./tms-dp/infra/gpg_secret.sh --rcs --k ./tms-dp/tms-infra-private.key ./tms-dp/",
       
       #установка мониторинга
 

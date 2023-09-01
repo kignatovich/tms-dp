@@ -54,7 +54,7 @@ async def deploy(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         completed_process = subprocess.run(["bash", "terraform apply", "apply", "-auto-approve"], cwd=PROJECT_DIR, capture_output=True, text=True)
         output_deploy = completed_process.stdout.strip()
         
-        await update.message.reply_text(f"Деплой выполнен.\nИнформация: {output_deploy}")
+        await update.message.reply_text(f"Деплой выполнен.")
     except Exception as e:
         await update.message.reply_text(f"Во время выполнения операции запуска возникла ошибка: {str(e)}")
         await update.message.reply_text(f"Во время выполнения операции деплоя возникла ошибка: {output_deploy}")

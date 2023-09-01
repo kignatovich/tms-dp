@@ -39,7 +39,7 @@ async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 @restricted
 async def deploy(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    # Check if the command has the required argument (the repository name)
+    # Деплой проекта, проеврка наличия файлов в проекте вывод ошибок
     try:
         script_directory = os.path.dirname(os.path.abspath(__file__))
         working_directory = os.path.join(PROJECT_DIR, "terraform", "create_infra")

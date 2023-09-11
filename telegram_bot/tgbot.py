@@ -3,10 +3,8 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 import os
 from functools import wraps
-
+#данная переменная исправляется скриптом установки телеграм бота
 PROJECT_DIR = "PRPATH"
-
-
 
 def restricted(func):
     """декоратор для ограничения пользователей по телеграм id.
@@ -17,7 +15,8 @@ def restricted(func):
     @wraps(func)
     async def wrapped(update: Update, context: ContextTypes.DEFAULT_TYPE, *args, **kwargs) -> None:
         user_id = update.effective_user.id
-        allowed_ids = [33828605]
+        #вводим нужные телеграм id для ограничения доступа
+        allowed_ids = [00000000]
         if user_id in allowed_ids:
             return await func(update, context, *args, **kwargs)
         else:
@@ -27,7 +26,7 @@ def restricted(func):
 
 
 async def hello(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text(f'Привет, {update.effective_user.first_name}!\nХочешь развернуть свой первый проект?\nПиши /help и узнай как это сделать!')
+    await update.message.reply_text(f'Привет, {update.effective_user.first_name}!\nЧтобы узнать команды\nПиши /help')
 
 #@restricted - секции защищенные авторизацией по телеграм id
 @restricted
@@ -53,14 +52,15 @@ async def deploy(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         
         completed_process = subprocess.run(["bash", "terraform apply", "apply", "-auto-approve"], cwd=PROJECT_DIR, capture_output=True, text=True)
         #output_deploy = completed_process.stdout.strip()
+        #тут нужно доработать на будущее
         
         await update.message.reply_text(f"Деплой выполнен.")
     except Exception as e:
         await update.message.reply_text(f"Во время выполнения операции запуска возникла ошибка: {str(e)}")
         await update.message.reply_text(f"Во время выполнения операции деплоя возникла ошибка: {output_deploy}")
 
-
-app = ApplicationBuilder().token("5889569320:AAGDeEAGOCLy2xvYko-cIZ-oT0EmOtTnTJY").build()
+#ниже вводится api-token телеграм бота (сейчас введен рандомный набор був и смволов)
+app = ApplicationBuilder().token("0000000000:AAAAbCCDDELy2xzYko-cIZ-oT2Em1bCyTJY").build()
 
 app.add_handler(CommandHandler("hello", hello))
 app.add_handler(CommandHandler("help", help))

@@ -22,7 +22,7 @@ prpass_file = "prepare.sh" #скрипт установки ssh ключей
 login_ghcr = "long.bi4@gmail.com" #логин в ghcr.io 
 sname_ghcr = "kignatovich"  #имя юзера в ghcr.io
 jenkins_im_ghcr = "jenkins-jcasc:1.2"  #название билда jenkins серврера
-tghcr = "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" #api_key от ghcr.io
+tghcr = "ghp_00000000000000000000000000000000000" #api_key от ghcr.io
 user_vm = "ubuntu" #пользователь ВМ
 d_dns = "devsecops.by."  #имя домена (обязательно с точкой в конце)
 dns_a_name = "tms-dp1.devsecops.by." #главная страница проекта (обязательно с точкой в конце)
@@ -36,7 +36,7 @@ cadvisor_dns_a_name = "cad1.devsecops.by."   #страница cadvisor прое
 static_ip = "51.250.14.123"  #статический адрес проекта
 ```
 
-Запуск. Переходим в нужную директорию и выполняем:
+Запуск (без бота). Переходим в нужную директорию и выполняем:
 ```shell
 terraform plan
 ```

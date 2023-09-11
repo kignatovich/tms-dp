@@ -79,7 +79,6 @@ resource "yandex_compute_instance" "vm-1" {
       "sudo timedatectl set-timezone Europe/Minsk",
       # обновляем и устанавливаем нужные программы
       "sudo apt update",
-      "sleep 90", #таймеры нужны для корректного завершения установок
       "sudo apt install -y docker.io nginx unzip git docker-compose",
       "sleep 10", #таймеры нужны для корректного завершения установок
       "sudo snap install core",

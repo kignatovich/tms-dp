@@ -50,4 +50,11 @@ gpg: encrypted with 3072-bit RSA key, ID 3BEFCA1C118FF8DA, created 2023-08-24
 
 <img width="727" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/d7835e6f-7c87-483a-befd-56603cfd4313">
 
+Так же вы получите сообщение об адресе проекта.
+
+<img width="562" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/1ca3a129-7b13-4d5f-a7cb-ad9999f3ffbb">
+
 Если будет ошибка - появится сообщение об ошибке и листинг ошибки.
+
+
+

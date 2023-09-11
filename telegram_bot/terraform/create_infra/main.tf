@@ -80,7 +80,6 @@ resource "yandex_compute_instance" "vm-1" {
       # обновляем и устанавливаем нужные программы
       "sudo apt update",
       "sudo apt install -y docker.io nginx unzip git docker-compose",
-      "sleep 10", #таймеры нужны для корректного завершения установок
       "sudo snap install core",
       "sudo snap refresh core",
       "sudo snap install --classic certbot",

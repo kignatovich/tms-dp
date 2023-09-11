@@ -23,7 +23,7 @@ sudo ./telegram_bot/install_bot.sh
 Cледующим шагом нужно расшифровать секреты (любые файлы с расширением gpg) в нужном каталоге.
 ```bash
 chmode +x ./telegram_bot/gpg_secret.sh
-./telegram_bot/gpg_secret.sh --rcs --k tms-dp-private.key ./telegram_bot/terraform/create_infra/
+./telegram_bot/gpg_secret.sh --rcs --k ./telegram_bot/tms-dp-private.key ./telegram_bot/terraform/create_infra/
 ```
 Шифрование ассиметричное (шифруется публичным ключом, расшифровывается приватным).
 

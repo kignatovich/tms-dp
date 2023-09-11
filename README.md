@@ -2,14 +2,8 @@
 
 # Настройка сервисной машины(она отвечает за запуск разворачивания инфраструктуры).
 В качестве инфрастуктуры используется Yandex Cloud.
-Для начала работы с YC нужно в нем зарегистрироваться, создать организацию и каталог.
-
-## Установка terraform
-```shell
-wget https://hashicorp-releases.yandexcloud.net/terraform/1.4.6/terraform_1.4.6_linux_amd64.zip
-unzip terraform_1.4.6_linux_amd64.zip
-mv terraform /usr/local/bin/
-```
+Для начала работы с YC нужно в нем зарегистрироваться, создать организацию, каталог, платежный аккаунт, и т.д.
+Подробнее [тут](https://cloud.yandex.ru/docs/getting-started/).
 
 ## Установка бота
 ```shell

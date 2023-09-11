@@ -132,10 +132,11 @@ resource "yandex_compute_instance" "vm-1" {
       "sudo echo sonar.host.url=http://${yandex_compute_instance.vm-1.network_interface.0.ip_address}:9000 >> ./tms-dp/infra/jenkins/sonar-scanner.properties",
       
       
-      # заменяем пароль администратора 1234 на пароль на наш и файла с переменными, заменяем IP адрес для вэбхуков на наш внешний адрес
+      # заменяем пароль администратора 1234 на наш пароль, заменяем IP адрес для вэбхуков на наш внешний адрес
       "sed -i -e \"s/1234/${var.SQPWD}/g\" ./tms-dp/infra/jenkins/jenkins-casc.yaml",
       "sed -i -e \"s/X.X.X.X/${yandex_compute_instance.vm-1.network_interface.0.ip_address}/g\" ./tms-dp/infra/jenkins/ansible/hosts_dev",
       "sed -i -e \"s/X.X.X.X/${yandex_compute_instance.vm-1.network_interface.0.ip_address}/g\" ./tms-dp/infra/jenkins/ansible/hosts_main",
+      # установка nginx и сопутсвующих программ
       "sudo chmod +x ./tms-dp/infra/nginx.sh",
       "sudo ./tms-dp/infra/nginx.sh",
       # авторизовываемся в хранилище github

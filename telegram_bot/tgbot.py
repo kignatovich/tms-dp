@@ -50,7 +50,7 @@ async def deploy(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             await update.message.reply_text(f"Отсутствует файл: {missing_files_str}")
             return
         
-        completed_process = subprocess.run(["bash", "terraform apply", "apply", "-auto-approve"], cwd=PROJECT_DIR, capture_output=True, text=True)
+        completed_process = subprocess.run(["bash", "terraform", "apply", "-auto-approve"], cwd=PROJECT_DIR, capture_output=True, text=True)
         #output_deploy = completed_process.stdout.strip()
         #тут нужно доработать на будущее
         

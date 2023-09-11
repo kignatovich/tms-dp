@@ -44,3 +44,5 @@ terraform plan
 ```shell
 terraform apply
 ```
+
+*Для простоты файлы terraform.tfvars и variables.tf одинаковы в create_infra, create_dns, create_bucket. Из create_dns, create_bucket нужно убрать не спользуемые переменные.

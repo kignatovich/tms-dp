@@ -86,7 +86,6 @@ resource "yandex_compute_instance" "vm-1" {
       "sudo ln -s /snap/bin/certbot /usr/bin/certbot",
       "sudo systemctl enable docker",
       "wget https://github.com/aquasecurity/trivy/releases/download/v0.44.1/trivy_0.44.1_Linux-64bit.deb",
-      "sleep 30", #таймеры нужны для корректного завершения установок
       "sudo dpkg -i trivy_0.44.1_Linux-64bit.deb",
       "echo ${var.dns_a_name} > nginx_projeckt_url",
       "echo ${var.jenkins_dns_a_name} > nginx_jenkins_url",
@@ -105,6 +104,7 @@ resource "yandex_compute_instance" "vm-1" {
       "echo yes | git clone ${var.GITPROJECT}",
       "sudo chmod +x ./tms-dp/infra/jenkins/telegram.sh",
       "sudo chmod +x ./tms-dp/infra/gpg_secret.sh",
+      "sudo chmod +x ./tms-dp/infra/check_resource.sh",
       "sudo chmod 644 ./tms-dp/tms-infra-private.key",
       "sudo ./tms-dp/infra/gpg_secret.sh --rcs --k ./tms-dp/tms-infra-private.key ./tms-dp/",
       
@@ -113,7 +113,7 @@ resource "yandex_compute_instance" "vm-1" {
       "sudo docker plugin install grafana/loki-docker-driver:latest --alias loki --grant-all-permissions",
       "sudo cp ./tms-dp/infra/daemon.json /etc/docker/",
       "sudo systemctl restart docker",
-
+      #установка локи
       "sudo chmod +x ./tms-dp/infra/loki.sh",
       "sudo ./tms-dp/infra/loki.sh",
       "sed -i -e \"s/0.0.0.0/${yandex_compute_instance.vm-1.network_interface.0.ip_address}/g\" ./tms-dp/infra/monitoring/grafana/provisioning/datasources/datasource.yml",
@@ -121,8 +121,9 @@ resource "yandex_compute_instance" "vm-1" {
       "sudo docker-compose -f ./tms-dp/infra/monitoring/docker-compose.yml up -d",
       # усатнвока sonar qube
       "sudo docker run -d --restart always --name sonarqube -p 9000:9000 -p 9092:9092 -v sonarqube-conf:/opt/sonarqube/conf -v sonarqube-data:/opt/sonarqube/data -v sonarqube-logs:/opt/sonarqube/logs -v sonarqube-extensions:/opt/sonarqube/extensions sonarqube",
-      # ждем 200 сек когда он запустится, у меня он не очень быстро стартует, поэтому нужно немного подождать
-      "sleep 200",
+    
+      # добавить скрипт проверки доспуногсти ресурса(ищем ответ 200 и текст на старнице)
+      "./tms-dp/infra/check_resource.sh http://localhost:9000 SonarQube",
       # меняем стандартный пароль сонара на наш и файла с переменными
       "curl -u admin:admin -X POST \"http://localhost:9000/api/users/change_password?login=admin&previousPassword=admin&password=${var.SQPWD}\"",
       # создаем проект кей и дефолтный проект
@@ -130,12 +131,12 @@ resource "yandex_compute_instance" "vm-1" {
       # генерируем токен и отправляем его в папку где будет собирваться jenkins, так же корректируем файл настроек sonarqbe
       "curl -X POST -u admin:${var.SQPWD} \"http://localhost:9000/api/user_tokens/generate\" -d \"name=${var.SQPNAME}&login=admin&projectKey=${var.SQPKEY}\" | grep -o '\"token\":\"[^\"]*' | cut -d'\"' -f4 > ./tms-dp/infra/jenkins/token",
       "sudo echo sonar.host.url=http://${yandex_compute_instance.vm-1.network_interface.0.ip_address}:9000 >> ./tms-dp/infra/jenkins/sonar-scanner.properties",
-      
-      
+    
       # заменяем пароль администратора 1234 на наш пароль, заменяем IP адрес для вэбхуков на наш внешний адрес
       "sed -i -e \"s/1234/${var.SQPWD}/g\" ./tms-dp/infra/jenkins/jenkins-casc.yaml",
       "sed -i -e \"s/X.X.X.X/${yandex_compute_instance.vm-1.network_interface.0.ip_address}/g\" ./tms-dp/infra/jenkins/ansible/hosts_dev",
       "sed -i -e \"s/X.X.X.X/${yandex_compute_instance.vm-1.network_interface.0.ip_address}/g\" ./tms-dp/infra/jenkins/ansible/hosts_main",
+      
       # установка nginx и сопутсвующих программ
       "sudo chmod +x ./tms-dp/infra/nginx.sh",
       "sudo ./tms-dp/infra/nginx.sh",

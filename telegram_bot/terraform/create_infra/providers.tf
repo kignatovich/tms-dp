@@ -10,8 +10,8 @@
     bucket     = "tf-state-bucket-tms-project"
     region     = "ru-central1-a"
     key        = "terraform/infrastructure1/terraform.tfstate"
-    access_key = "YCAJEtJi0OkUE1C-fQdFW8qjU"
-    secret_key = "YCNPkKhApdKoG-swWydwwilR3I7E6E1WYlBVHpwW"
+    access_key = "0000000000000-0000000"
+    secret_key = "0000000000000-000000000000000000000000000"
     skip_region_validation      = true
     skip_credentials_validation = true
   }

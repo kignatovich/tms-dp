@@ -21,8 +21,8 @@ prpass = "0000000000"  #пароль от архива преднастройк�
 prpass_url = "https://docs.google.com/uc?export=download&id=1Ga-OAfa000tHq0a000BVOdrGIB9tAPes" #ссылка на заштврованный архив в GC.
 prpass_zip = "keyp.zip" #название зашифрованного архива
 prpass_file = "prepare.sh" #скрипт установки ssh ключей
-login_ghcr = "long.bi4@gmail.com" #логин в ghcr.io 
-sname_ghcr = "login_to_ghcr"  #имя юзера в ghcr.io
+login_ghcr = "login_to_ghcr" #логин в ghcr.io 
+sname_ghcr = "kignatovich"  #имя юзера в ghcr.io
 jenkins_im_ghcr = "jenkins-jcasc:1.2"  #название билда jenkins серврера
 tghcr = "ghp_000000000000000000000000000000000000" #api_key от ghcr.io
 user_vm = "ubuntu" #пользователь ВМ

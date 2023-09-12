@@ -36,7 +36,8 @@
 При запуске команды в боте телеграм (/deploy), выполняется комнада terraform apply. В это время автоматически разворачиваются sqnarqube, jenkins и сопутсвующие сервисы/скрипты.
 Вывод команды terraform apply.
 
-<img width="795" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/39f4e54e-698e-4009-ace8-b88f73f7103f">
+<img width="729" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/833b45df-1917-4619-98b5-f7ea8429ed4c">
+
 
 Один из важных скриптов которые отрабатывают в самом началае секции remote-exec - prepare.sh находящийся в шифрованом архиве keyp.zip, который добавляет возможность "читать ВМ" приватные репозитории gitlab. 
 ```shell

@@ -50,7 +50,8 @@ ssh-keyscan github.com >> /home/ubuntu/.ssh/known_hosts
 ## Главная страница
 После успешного разворачивания инфраструктуры - будет создана главная страница проекта, доступная по адресу https://tms-dp1.devsecops.by. 
 
-![image](https://github.com/kignatovich/tms-dp/assets/110161538/7988f229-c14d-42c6-8a6f-e64028c3778c)
+![image](https://github.com/kignatovich/tms-dp/assets/110161538/f64e1850-d4c6-4b8b-97f9-b33b0ccd54e2)
+
 
 ## Описание ресурсов:
 - Дженкинс - https://jenkins1.devsecops.by (логин admin пароль из файла конфига terraform по умолчанию 123456789)
@@ -63,7 +64,8 @@ ssh-keyscan github.com >> /home/ubuntu/.ssh/known_hosts
 
 
 ## Jenkins
-<img width="1436" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/1920c0c6-66a9-45d4-bcf8-692739599167">
+![image](https://github.com/kignatovich/tms-dp/assets/110161538/0d0d0885-568c-4851-860b-9ab3b725973e)
+
 
 После деплоя инфраструктуры в дженкинсе появляются два пайплайна: один для ветки main, второй для ветки dev.
 
@@ -77,34 +79,37 @@ ssh-keyscan github.com >> /home/ubuntu/.ssh/known_hosts
 - Apache benchmark test - нагрузочный тест main или dev среды
 - Declarative: Post Actions уведомления, реализованы через [телеграмм скрипт](https://github.com/kignatovich/tms-dp/blob/main/infra/jenkins/telegram.sh). 
 
-<img width="627" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/6440c8dc-576e-4839-bcdc-e1168b420894">
-<img width="629" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/d6d04ac2-0483-4aef-addd-0f071a621fcd">
-<img width="632" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/6948f850-f925-4e15-85e5-0bfa7df27dcc">
 
 
 ## Пайплайны запускаются автоматически при пуше в соответствующую ветку репозитория github.
 
-<img width="1442" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/a7590e56-39d5-44cd-9069-4ee46ef1cf26">
+![image](https://github.com/kignatovich/tms-dp/assets/110161538/dd1f3dd8-3966-4fef-9b25-6b7e86f0ade6)
 
-<img width="1450" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/cff087a3-6636-47bd-a916-35f481c47bdf">
+
 
 ## Отчеты Sonarqube
-<img width="1418" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/b83c5933-dbfb-4f8a-9436-5baf69ed1a7f">
+![image](https://github.com/kignatovich/tms-dp/assets/110161538/1ed98931-2edf-418b-bbe0-a914eed1bd5e)
+
 
 ## Отчеты сканера уязвимостей образов, располагаются по адресу:
 https://tms-dp1.devsecops.by/report/
-<img width="1115" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/31532521-8b27-4d3d-b277-9643e4a64010">
-<img width="1439" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/d062da7f-729e-4fe8-ac8e-a9d953306ae0">
+![image](https://github.com/kignatovich/tms-dp/assets/110161538/7645d4a1-d0a5-4c0a-9a89-b470a55f411d)
+![image](https://github.com/kignatovich/tms-dp/assets/110161538/962edcec-1a11-4f2b-9442-837aef2af3ca)
+
+
 
 
 
 ## Продакшен версия приложения:
 https://prod1.devsecops.by/
-<img width="1124" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/71b9c6fc-4fd6-45da-9830-2985798f4465">
+
+<img width="1124" alt="Снимок экрана 2023-08-21 в 17 23 33" src="https://github.com/kignatovich/tms-dp/assets/110161538/f48c1917-0555-4694-bfb9-d731a9c77290">
+
 
 ## Девелопер версия приложения:
 https://dev1.devsecops.by/
-<img width="1110" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/4cfde587-b926-4132-8dd6-53a3073798c3">
+
+<img width="1110" alt="Снимок экрана 2023-08-21 в 17 24 15" src="https://github.com/kignatovich/tms-dp/assets/110161538/b1125230-15c8-4b9d-85ad-3d01a012ef93">
 
 
 ## Grafana:
@@ -114,39 +119,38 @@ https://dev1.devsecops.by/
 - monitoring services (мониторинг мониторинга)
 - logs (кастомный вывод логов и алертов)
 
-<img width="1434" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/c3a91a14-4e14-4f40-af4e-cd3bac353fd2">
+<img width="1510" alt="Снимок экрана 2023-08-21 в 17 26 14" src="https://github.com/kignatovich/tms-dp/assets/110161538/2e3efc5b-542a-46dd-9428-8e782d65f8ee">
 
+<img width="1509" alt="Снимок экрана 2023-08-21 в 17 26 37" src="https://github.com/kignatovich/tms-dp/assets/110161538/77bda930-379b-4088-a212-8e1338b203e1">
 
-<img width="1509" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/b37f8ff1-7611-412d-bfdd-23dc80d16bb3">
+<img width="1502" alt="Снимок экрана 2023-08-21 в 17 27 04" src="https://github.com/kignatovich/tms-dp/assets/110161538/376b8153-309e-4a10-8af6-2fc253e21ad3">
 
+<img width="1510" alt="Снимок экрана 2023-08-21 в 17 28 43" src="https://github.com/kignatovich/tms-dp/assets/110161538/42a2201b-eb31-403f-904f-7d4522b4639b">
 
-<img width="1502" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/343ea0f8-8dc4-4df0-b7e3-7bc69111af0b">
-
-
-<img width="1508" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/ac643ed8-2bce-4074-aeee-1617d0ea7850">
-
-
-<img width="1510" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/037569b0-dc16-47bf-85bf-60940d00b903">
 
 
 ## Также, добавлен loki для сборов логов:
 
-<img width="1485" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/e99163a9-7b9e-45e1-9659-a15727dec0f1">
+<img width="1485" alt="Снимок экрана 2023-08-21 в 17 29 21" src="https://github.com/kignatovich/tms-dp/assets/110161538/0c76dbf1-9e72-4899-b03a-cff41a304659">
 
-<img width="1459" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/db0604d0-f809-42ba-83f2-5e89a1a214c3">
-
-<img width="1158" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/1e729979-0c97-4c42-9b8a-b1eef5d5a7d2">
+<img width="1459" alt="Снимок экрана 2023-08-21 в 17 30 29" src="https://github.com/kignatovich/tms-dp/assets/110161538/21dd927b-b7ec-411b-9b33-37ac60ab8089">
 
 
 ## Alertmanager - отправляет алеры в телеграм.
 
-<img width="616" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/cf52204f-c552-47e6-833d-f241fabf8cb4">
+![image](https://github.com/kignatovich/tms-dp/assets/110161538/a461bff4-02c4-45c3-8b8b-56992a0c9a28)
+
 
 
 ## github.com packages
-![image](https://github.com/kignatovich/tms-dp/assets/110161538/3f232096-d803-45a1-a249-256d5c338f6d)
-![image](https://github.com/kignatovich/tms-dp/assets/110161538/ef129e64-1252-49bd-b2d8-2051aba9e9fb)
-![image](https://github.com/kignatovich/tms-dp/assets/110161538/0878327e-c5f3-44fd-aa1e-e4f21b5cec27)
+<img width="931" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/b7562f8c-2159-44bf-b019-e65c3694a775">
+
+<img width="740" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/0c209461-c994-4ac0-9e33-a94931274a79">
+
+<img width="758" alt="image" src="https://github.com/kignatovich/tms-dp/assets/110161538/03d11824-82e9-464d-8d68-fe042f4abf75">
+
+
+
 
 
 

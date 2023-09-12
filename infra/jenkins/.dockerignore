@@ -1,0 +1,7 @@
+.git
+*.md
+*.gpg
+*_decrypted
+ansible/*.md
+ansible/*.gpg
+ansible/*_decrypted

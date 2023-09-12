@@ -1,0 +1,35 @@
+---
+- hosts: all
+  become: true
+  tasks:
+
+    - name: Клонирование репозитория
+      git: repo={{ repo_url }}/{{ repo }}.git
+        dest={{ repo_dir }}
+        version={{ repo_branch }}
+        accept_hostkey=yes
+      become_user: ubuntu
+
+    - name: Сборка контейнера
+      shell: |
+        docker stop {{ container_name }}
+        docker rm {{ container_name }}
+        docker build -t {{ full_name }}:{{ BN }} {{ repo_dir}}/.
+      become: yes
+
+
+    - name: Тестирование уязвимостей образа
+      shell: |
+        trivy image --scanners vuln --format template --template "@./tms-dp/infra/contrib/html.tpl" -o /var/www/tms-dp1.devsecops.by/report/{{ build_name }}-{{ BN }}.html {{ full_name }}:{{ BN }}
+      become: yes
+
+    - name: Запуск контейнера
+      shell: |
+        docker run -d --restart always --name {{ container_name }} -p {{ ext_port }}:{{ int_port }} {{ full_name }}:{{ BN }}
+      become: yes
+
+
+    - name: Отправка контейнера в хранилище артефактов(ghcr.io)
+      shell: |
+        docker push {{ full_name }}:{{ BN }}
+      become: yes

@@ -57,9 +57,9 @@ async def deploy(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         await update.message.reply_text(f"Деплой выполнен.")
     except Exception as e:
         await update.message.reply_text(f"Во время выполнения операции запуска возникла ошибка: {str(e)}")
-        await update.message.reply_text(f"Во время выполнения операции деплоя возникла ошибка: {output_deploy}")
+       # await update.message.reply_text(f"Во время выполнения операции деплоя возникла ошибка: {output_deploy}")
 
-#ниже вводится api-token телеграм бота (сейчас введен рандомный набор був и смволов)
+#ниже вводится api-token телеграм бота (сейчас введен рандомный набор букв и смволов)
 app = ApplicationBuilder().token("0000000000:AAAAbCCDDELy2xzYko-cIZ-oT2Em1bCyTJY").build()
 
 app.add_handler(CommandHandler("hello", hello))
